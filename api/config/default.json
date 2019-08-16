@@ -1,0 +1,5 @@
+{
+  "jwtPrivateKey": "Hello",
+  "db":"mongodb+srv://joe:joe123@cluster0-apwlq.mongodb.net/explane"
+}
+
