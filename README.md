@@ -16,10 +16,9 @@ cd Explane
 
 * api_server
 ```
+cd api_server
 npm i
-
 npm run dev
-
 ```
 
 ## Running the tests
