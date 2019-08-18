@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^1.0.3",
+    "bcrypt": "^3.0.6",
     "config": "^1.29.4",
     "express": "^4.16.2",
     "express-async-errors": "^2.1.0",
