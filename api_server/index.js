@@ -2,7 +2,8 @@ const winston = require('winston');
 const express = require('express');
 const app = express();
 const expressSwagger = require('express-swagger-generator')(app);
-console.log("__dirname", __dirname);
+const router = express.Router();
+const HOST_URL = process.env.HEROKU_URL || 'localhost:3000';
 let options = {
     swaggerDefinition: {
         info: {
@@ -10,15 +11,15 @@ let options = {
             title: 'Swagger',
             version: '1.0.0',
         },
-        host: 'localhost:3000/api',
-        basePath: '/v1',
+        host: HOST_URL,
+        basePath: '/api/v1',
         produces: [
             "application/json",
             "application/xml"
         ],
         schemes: ['http', 'https'],
         securityDefinitions: {
-            JWT: {
+            bearerAuth: {
                 type: 'apiKey',
                 in: 'header',
                 name: 'x-auth-token',
@@ -29,8 +30,8 @@ let options = {
     basedir: __dirname, //app absolute path
     files: ['./routers/**/*.js'] //Path to the API handle folder
 };
-expressSwagger(options)
 
+expressSwagger(options)
 
 require('./startup/logging')();
 require('./startup/routes')(app);

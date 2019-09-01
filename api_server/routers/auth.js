@@ -7,11 +7,16 @@ const express = require('express');
 const router = express.Router();
 
 /**
+ * @typedef AuthInput
+ * @property {string} email.required - username or email - eg: user@domain
+ * @property {string} password.required - user's password - eg: 12345
+ */
+
+/**
  * Login User
  * @route POST /auth
  * @group auth - Operations about auth
- * @param {string} email.query.required - username or email - eg: user@domain
- * @param {string} password.query.required - user's password.
+ * @param {AuthInput.model} body.body.required - name - eg: Jessie
  * @returns {object} 200 - A token object
  * @returns {Error}  default - Unexpected error
  */

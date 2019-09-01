@@ -11,6 +11,7 @@ const router = express.Router();
 /**
  * Get user infos
  * @route GET /users/me
+ * @security bearerAuth
  * @group users - Operations about users
  * @returns {object} 200 - An object of user infos
  * @returns {Error}  default - Unexpected error
