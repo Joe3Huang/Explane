@@ -32,6 +32,7 @@ let options = {
 };
 
 expressSwagger(options)
+require('appmetrics-dash').attach();
 
 require('./startup/logging')();
 require('./startup/routes')(app);
