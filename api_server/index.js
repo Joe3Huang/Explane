@@ -3,6 +3,8 @@ const express = require('express');
 const app = express();
 const expressSwagger = require('express-swagger-generator')(app);
 const router = express.Router();
+const bodyParser = require('body-parser');
+const path = require('path');
 const HOST_URL = process.env.HEROKU_URL || 'localhost:3000';
 let options = {
     swaggerDefinition: {
@@ -33,6 +35,18 @@ let options = {
 
 expressSwagger(options)
 require('appmetrics-dash').attach();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+//public folder 
+app.use('/public', (req, res, next) => {
+    var result = req.url.match(/^\/js\/(maps|src)\/.+\.js$/)
+    if (result) {
+        return res.status(403).end('403 Forbidden')
+    }
+    next()
+  })
+app.use('/public', express.static(path.join(__dirname, '/uploads')))
+
 
 require('./startup/logging')();
 require('./startup/routes')(app);

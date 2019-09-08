@@ -19,6 +19,7 @@ const router = express.Router();
 
 router.get('/me', auth, async (req, res) => {
   const user = await User.findById(req.user._id).select('-password');
+
   res.send(user);
 });
 
@@ -49,6 +50,7 @@ router.post('/', async (req, res) => {
   await user.save();
   const token = user.generateAuthToken();
   res.header('x-auth-token', token).send(_.pick(user, ['_id', 'name', 'email']));
+
 });
 
 module.exports = router; 
