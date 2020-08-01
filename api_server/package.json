@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "cacheDirectories": ["./node_modules", "./uploads/"],
+  "cacheDirectories": [
+    "./node_modules",
+    "./uploads/"
+  ],
   "scripts": {
     "dev": "nodemon index.js",
     "test": "jest --watchAll --verbose",
@@ -13,7 +16,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "appmetrics-dash": "^5.0.0",
     "bcrypt": "^3.0.6",
     "config": "^1.29.4",
     "express": "^4.16.2",

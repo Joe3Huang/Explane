@@ -34,7 +34,6 @@ let options = {
 };
 
 expressSwagger(options)
-require('appmetrics-dash').attach();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 //public folder 
