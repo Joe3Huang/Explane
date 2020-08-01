@@ -2,6 +2,13 @@
 
 Explane
 
+## Demo
+
+https://explane-api.herokuapp.com/api-docs
+
+https://explane-api.herokuapp.com/api/v1/items
+
+
 ## Getting Started
 
 git clone https://github.com/Joe3Huang/Explane.git
